@@ -28,10 +28,6 @@ void loop() {
   EC ec = get_ec(currentTemp.water);
   print_ec(ec);
   
-  
-  
-  
-  
   Serial.print("Relative Humidity: \t");
   Serial.println(return_rH(currentTemp.air));
   
