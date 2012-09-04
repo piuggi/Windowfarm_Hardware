@@ -33,7 +33,7 @@ void start_ec(){
 
 //-----------------------------------------------------------------------------------------
 void get_ec(){
- Serial.println("R\\r --> PH"); //let us know we are asking
+ Serial.println("R\\r --> EC"); //let us know we are asking
  Serial1.print("R\r"); //ask device
  delay(500);
  
