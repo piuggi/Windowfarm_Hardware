@@ -5,3 +5,10 @@ struct EC{
    float salinity;
   
 };
+
+struct temps{
+
+    float air;
+    float water;
+
+};
