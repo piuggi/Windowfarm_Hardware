@@ -17,3 +17,4 @@
 	Serial2 - Atlas Scientific PH Stamp
 	Serial3 - Roving Networks RN-XV WiFly
 	
+	D4 - 2 Dallas 1-wire sensors connected to ground & 5v w. 4.7k ohm pull-up resistor
