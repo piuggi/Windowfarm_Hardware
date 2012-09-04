@@ -1,5 +1,11 @@
+//define analog pins 
 #define HUMIDITY A1
+#define CO2 A0 
 
+//define digital pins
+#define CO2_CRTL 2
+
+//-------------------------------------------------------
 float return_rH(float _t) {
   
   //RH
@@ -16,4 +22,19 @@ float return_rH(float _t) {
   //Serial.println("DONE. ");
   return rHCalc;
   
+}
+
+//-------------------------------------------------------
+//Turn out control pin to High on our Parallax CO2 Break out board.
+void setup_co2(){
+ pinMode(CO2_CRTL, OUTPUT); //Digital Pin
+ digitalWrite(CO2_CRTL, HIGH);
+ //Serial.print("CO2 Ready..."); 
+}
+
+//-------------------------------------------------------
+//return analog value from co2 sensor
+int return_co2(){
+  int val = analogRead(CO2);
+  return val;
 }

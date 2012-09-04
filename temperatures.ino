@@ -1,3 +1,4 @@
+
 //Temp & onewire functions referenced from: 
 //Beginning Arduino by Michael McRoberts
 //Pages 307-315
@@ -65,9 +66,9 @@ void tempConnect(DeviceAddress address, int num) {
 }
 
 //-------------------------------------------------------
-temps return_temps(){
+TEMPS return_temps(){
    //request our temps
-   temps _temp;
+   TEMPS _temp;
    tempSensors.requestTemperatures();
 
    _temp.air = celcius(AIR);
@@ -76,13 +77,13 @@ temps return_temps(){
 }
 
 //-------------------------------------------------------
-void print_temps(temps &_te){
-    
+void print_temps(TEMPS &_te){
+   Serial.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
    Serial.print("Temps Air: ");
    Serial.print(_te.air);
    Serial.print("  Water: ");
    Serial.println(_te.water);
-  
+   Serial.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 }
 
 //-------------------------------------------------------

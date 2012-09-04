@@ -20,11 +20,13 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
 	Sensors and Connections:
 	
 	Arduino Mega
-	Serial1 - Atlas Scientific EC Stamp
-	Serial2 - Atlas Scientific PH Stamp
-	Serial3 - Roving Networks RN-XV WiFly
+	Serial1 COMM18 & COMM19 - Atlas Scientific EC Stamp
+	Serial2 COMM16 & COMM17 - Atlas Scientific PH Stamp
+	Serial3 COMM14 & COMM15 - Roving Networks RN-XV WiFly
+	I2C COMM20 & COMM21
 	
 	D4 - 2 Dallas 1-wire sensors connected to ground & 5v w. 4.7k ohm pull-up resistor
+	
 	
   ##############################################
   
