@@ -15,7 +15,12 @@ DeviceAddress AIR = {
   0x28, 0x5D, 0x5B, 0xC2, 0x3, 0x00, 0x00, 0x45
 };
 
-float tempCAir, tempCWater;
+DeviceAddress THERM[2] = {
+  {0x28, 0x5D, 0x5B, 0xC2, 0x3, 0x00, 0x00, 0x45}, //air
+  {0x28, 0x76, 0xE6, 0xC1, 0x3, 0x00, 0x00, 0x20}//water
+  };
+
+//float tempCAir, tempCWater;
 
 //Create OneWire Object
 OneWire onewire(ONE_WIRE_BUS);
@@ -24,17 +29,13 @@ DallasTemperature tempSensors(&onewire);
 
 //-------------------------------------------------------
 void setup_temp() {
-  Serial.print("Setting up Temps...");
   tempSensors.begin();
-  
   int sensors = tempSensors.getDeviceCount();
-  
-  tempConnect(AIR, 0);
-  tempConnect(WATER, 1);
-  
-  tempSensors.setResolution(AIR, TEMPERATURE_PRECISION);
-  tempSensors.setResolution(WATER, TEMPERATURE_PRECISION);
-
+  for(int i = 0; i<sensors; i++){ 
+    
+    tempConnect(THERM[i], 1);
+    tempSensors.setResolution(THERM[i], TEMPERATURE_PRECISION);
+  }
 }
 
 //-------------------------------------------------------
@@ -43,7 +44,7 @@ void tempConnect(DeviceAddress address, int num) {
   boolean tempInit = true;
   if(!tempSensors.getAddress(address, num)) tempInit = false;
   
-  //-- if we don't get a connection with the device
+  //-- if we don't get a connection with the THERM
   if(!tempInit){
     Serial.print("Error: Temp Connect Failed...");
     Serial.write(13);
@@ -53,7 +54,7 @@ void tempConnect(DeviceAddress address, int num) {
      
   }
 
-  //-- if we don't get a connection with the device
+  //-- if we don't get a connection with the THERM
   if(!tempInit){
     tempInit = true;
 
@@ -71,8 +72,8 @@ TEMPS return_temps(){
    TEMPS _temp;
    tempSensors.requestTemperatures();
 
-   _temp.air = celcius(AIR);
-   _temp.water = celcius(WATER);
+   _temp.air = celcius(THERM[0]);
+   _temp.water = celcius(THERM[1]);
    return _temp;
 }
 
