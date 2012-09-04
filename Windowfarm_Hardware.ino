@@ -1,3 +1,5 @@
+#include "data_types.h"
+
 void setup() {
  
  Serial.begin(9600); 
@@ -10,6 +12,7 @@ void setup() {
 
 void loop() {
   Serial.println(get_ph());
-  get_ec();
+  EC ec = get_ec();
+  print_ec(ec);
   delay(4000);
 }
