@@ -2,12 +2,17 @@
 
 	Firmware for Windowfarm Sensing Prototype Unit 
 		Commissioned for Windowfarms by Cosm
+				Written by c.piuggi
+			  Released under CC by nc sa
+http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
 ------------------------------------------------------
 
+	About:
+	
 	This unit collects hydroponic data and sends 
 	to your COSM account.
 	
-	
+------------------------------------------------------
 	
 	#######################
 	Sensors and Connections:
