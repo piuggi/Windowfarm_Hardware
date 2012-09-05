@@ -1,6 +1,4 @@
-
-#define PACHUBEFEED  "52204"
-#define APIKEY "NN7BZffzOaG8RfmD3hPPsuAWYnEZD1YOzaJZZSVO_Oc"
+#define PACHUBEFEED  "FEED_ID"
+#define APIKEY "KEY"
 
 #define TIMETOUPDATE 15000 
-
