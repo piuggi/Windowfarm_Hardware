@@ -3,7 +3,7 @@
 void start_ph(){
   
  Serial2.begin(DATABAUD);
- //Serial2.setTimeout(3000);
+ Serial2.setTimeout(6000);
  Serial2.print("L1\r");
  delay(1000);
  Serial2.print("L0\r");
@@ -25,7 +25,7 @@ float get_ph(float _c){
 void start_ec(){
  
  Serial1.begin(DATABAUD);
- //Serial1.setTimeout(3000);
+ Serial1.setTimeout(6000);
  Serial1.print("L1\r");
  delay(1000);
  Serial1.print("L0\r");

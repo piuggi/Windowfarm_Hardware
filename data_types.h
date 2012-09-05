@@ -20,4 +20,13 @@ struct Light{
   
 };
 
+struct AllVals{
+      Light _light;
+      TEMPS _temp;
+      EC _ec;
+      float _ph;
+      float _hum;
+      int _co2; 
+  
+};
 

@@ -2,7 +2,7 @@
 #include <DallasTemperature.h>
 #include <Wire.h>
 #include <TSL2561.h>
-#include <SPI.h>
+
 #include <WiFly.h>
 #include "keys.h"
 #include "data_types.h"
@@ -14,11 +14,12 @@
 void setup() {
  
  Serial.begin(BAUD); 
+ setup_wifly();
  start_ph();
  start_ec();
  setup_temp();
  setup_co2();
- setup_wifly();
+
  
 }
 
