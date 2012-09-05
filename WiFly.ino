@@ -44,7 +44,7 @@ void send_data(AllVals &_val){
       client.print("hum,");client.println(_val._hum);
       client.print("air,");client.println(_val._temp.air);
       client.print("water,");client.println(_val._temp.water);
-      //client.print("mos,");client.println(moisture);
+      client.print("mos,");client.println(_val._mos);
       client.print("ec,");client.println(_val._ec.conductivity);  
       client.print("tds,");client.println(_val._ec.tds); 
       client.print("sal,");client.println(_val._ec.salinity);  

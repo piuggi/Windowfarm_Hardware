@@ -19,7 +19,6 @@ void setup() {
  start_ec();
  setup_temp();
  setup_co2();
-
  
 }
 
@@ -44,6 +43,10 @@ void loop() {
   sensor._co2 = return_co2();
   Serial.print("CO2 \t");
   Serial.println(sensor._co2);
+  
+  sensor._mos = return_moisture();
+  Serial.print("MOISTURE \t");
+  Serial.println(sensor._mos);
   
   sensor._light = get_light();
   print_light(sensor._light);

@@ -1,3 +1,5 @@
+#define MOISTURE A2
+
 //-----------------------------------------------------------------------------------------
 //init ph by making sure we can communicate
 void start_ph(){
@@ -49,7 +51,7 @@ EC get_ec(float _c){
  return t;
  
 }
-
+//-----------------------------------------------------------------------------------------
 void print_ec(EC &_t){
   Serial.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
   Serial.println("EC");
@@ -60,5 +62,12 @@ void print_ec(EC &_t){
   Serial.print("salinity \t");
   Serial.println(_t.salinity);
   Serial.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+  
+}
+//-----------------------------------------------------------------------------------------
+
+int return_moisture(){
+  
+  return analogRead(MOISTURE);
   
 }
