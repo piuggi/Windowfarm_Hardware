@@ -3,25 +3,29 @@
 
 //See : http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Wireless/WiFi/WiFly-RN-UM.pdf
 
-WiFlyClient client("api.pachube.com", 80);
+//WiFlyClient client("api.pachube.com", 80);
+
+
+WiFlyClient client("http://requestb.in", 80);
 
 void setup_wifly() {
   Serial.println("Set-up WiFly");
   // lots of time for the WiFly to start up and also in case I need to stop the transmit
-  delay(10000);
+
   
   Serial3.begin(BAUD);  // default WiFly baud rate - good enough for this
 
   WiFly.setUart(&Serial3); // Tell the WiFly library that we are not using the SPIUart
-  
-  Serial.println("Wifly begin");
+  delay(10000);
+  Serial.println("Wifly begin..");
   
   WiFly.begin();    // startup the WiFly
 
+  Serial.println("Wifly ready..");
 }
 
-char buff[64];
-int i;
+//char buff[64];
+//int i;
 void send_data(AllVals &_val){
 
     Serial.println("connecting...");
@@ -73,46 +77,3 @@ void send_data(AllVals &_val){
       Serial.println("disconnected.");
     }
 }
-
-
-//char buff[64];
-//int i;
-//void send_data(AllVals &_val){
-//
-//    sprintf(buff,"0,%d\n1,%d",i++,i+2);
-//    Serial.println("connecting...");
-//    if (client.connect()) {
-//      Serial.println("connected");
-//      client.print("PUT /v2/feeds/");  // APIV2
-//      client.print(PACHUBEFEED);
-//      client.println(".csv HTTP/1.1");
-//      client.println("Host: api.pachube.com");
-//      client.print("X-PachubeApiKey: ");
-//      client.println(APIKEY);
-//  
-//      client.println("User-Agent: Arduino (WiFly RN-XV)");
-//      client.print("Content-Type: text/csv\nContent-Length: ");
-//      client.println(strlen(buff));
-//      client.println("Connection: close");
-//      client.println();
-//  
-//      client.print(buff);
-//      client.println();
-//  
-//    } else {
-//      Serial.println("connection failed");
-//    }
-//
-//    delay(2000);
-//    while (client.available()) {
-//      // TODO verify success (HTTP/1.1 200 OK)
-//      Serial.write(client.read());  // display the result
-//    }
-//    Serial.println();
-//   
-//    if (client.connected()) {
-//      Serial.println("disconnecting.");
-//      client.stop();
-//      Serial.println("disconnected.");
-//    }
-//}

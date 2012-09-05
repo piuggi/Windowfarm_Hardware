@@ -27,6 +27,5 @@ struct AllVals{
       float _ph;
       float _hum;
       int _co2; 
-  
 };
 
