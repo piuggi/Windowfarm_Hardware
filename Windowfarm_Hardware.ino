@@ -2,7 +2,7 @@
 #include <DallasTemperature.h>
 #include <Wire.h>
 #include <TSL2561.h>
-
+#include <SPI.h>
 #include <WiFly.h>
 #include "keys.h"
 #include "data_types.h"

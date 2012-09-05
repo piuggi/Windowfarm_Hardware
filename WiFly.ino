@@ -3,29 +3,25 @@
 
 //See : http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Wireless/WiFi/WiFly-RN-UM.pdf
 
-//WiFlyClient client("api.pachube.com", 80);
-
-
-WiFlyClient client("http://requestb.in", 80);
+WiFlyClient client("api.pachube.com", 80);
 
 void setup_wifly() {
   Serial.println("Set-up WiFly");
   // lots of time for the WiFly to start up and also in case I need to stop the transmit
-
+  delay(10000);
   
   Serial3.begin(BAUD);  // default WiFly baud rate - good enough for this
 
   WiFly.setUart(&Serial3); // Tell the WiFly library that we are not using the SPIUart
-  delay(10000);
-  Serial.println("Wifly begin..");
+  
+  Serial.println("Wifly begin");
   
   WiFly.begin();    // startup the WiFly
 
-  Serial.println("Wifly ready..");
 }
 
-//char buff[64];
-//int i;
+char buff[64];
+int i;
 void send_data(AllVals &_val){
 
     Serial.println("connecting...");
@@ -40,7 +36,7 @@ void send_data(AllVals &_val){
   
       client.println("User-Agent: Arduino (WiFly RN-XV)");
       client.print("Content-Type: text/csv\nContent-Length: ");
-      client.println("110");
+      client.println("120");
       client.println("Connection: close");
       client.println();
   
@@ -48,7 +44,7 @@ void send_data(AllVals &_val){
       client.print("hum,");client.println(_val._hum);
       client.print("air,");client.println(_val._temp.air);
       client.print("water,");client.println(_val._temp.water);
-      //client.print("moisture,");client.println(moisture);
+      //client.print("mos,");client.println(moisture);
       client.print("ec,");client.println(_val._ec.conductivity);  
       client.print("tds,");client.println(_val._ec.tds); 
       client.print("sal,");client.println(_val._ec.salinity);  
